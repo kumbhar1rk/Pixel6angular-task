@@ -1,0 +1,86 @@
+<div class="card">
+  <div class="container">
+    <form [formGroup]="new" (ngSubmit)="submit()">
+      <div *ngIf="ShowVeryOtpFiled==false">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">PanNumber</label>
+          <input type="email" formControlName="panNumber" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp">
+          <span class="text-danger"
+            *ngIf="new.controls['panNumber'].dirty && new.hasError('required','panNumber') ">*Enter
+            Pan Number</span>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"> City </label>
+          <input type="email" formControlName="city" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp">
+          <span class="text-danger" *ngIf="new.controls['city'].dirty && new.hasError('required','city') ">*Enter
+            City</span>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"> Full Name </label>
+          <input type="email" formControlName="fullname" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp">
+          <span class="text-danger"
+            *ngIf="new.controls['fullname'].dirty && new.hasError('required','fullname') ">*Enter
+            Full Name</span>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"> Email </label>
+          <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp">
+          <span class="text-danger" *ngIf="new.controls['email'].dirty && new.hasError('required','email') ">*Enter
+            Email </span>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Mobile </label>
+          <input type="email" minlength="10" formControlName="mobile" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp">
+          <span class="text-danger" *ngIf="new.controls['mobile'].dirty && new.hasError('required','mobile') ">*Enter
+            Mobile Number</span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Get Otp</button>
+      </div>
+      <button type="submit" *ngIf="ResendOtp" class="btn btn-primary">Resend Otp</button>
+
+    </form>
+
+    <form *ngIf="ShowVeryOtpFiled==true" [formGroup]="verifyOtpForm" (ngSubmit)="VerifyYourMobileNo()">
+      <h6 *ngIf="successMsg==true">Thank you for verification {{UserName}}</h6>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Mobile </label>
+        <span>
+          <input type="email" minlength="10" formControlName="mobile" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp">
+        </span>
+
+        <span class="text-danger" *ngIf="new.controls['mobile'].dirty && new.hasError('required','mobile') ">*Enter
+          Mobile Number</span>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"> Otp </label>
+        <input type="email" formControlName="otp" class="form-control" id="exampleInputEmail1"
+          aria-describedby="emailHelp">
+        <span class="text-danger" *ngIf="new.controls['otp'].dirty && new.hasError('required','otp') ">*Enter
+          OTP</span>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Verify Otp</button>
+
+      <div class="text-white text-center">
+      </div>
+    </form>
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
